@@ -61,6 +61,29 @@ Swagger:
 
 ![Swagger screenshot](docs/screenshots/swagger.png)
 
+## Proof It Runs
+
+Verified locally on April 30, 2026 with Uvicorn serving the FastAPI app at `http://127.0.0.1:8000`.
+
+`GET /health`
+
+```json
+{
+  "status": "ok",
+  "model_version": "baseline-linear-v1"
+}
+```
+
+`POST /predict`
+
+```json
+{
+  "predicted_tool_wear": 0.18,
+  "surface_quality_risk": "medium",
+  "confidence": 0.82
+}
+```
+
 ## What This Demonstrates
 
 - Typed FastAPI request and response contracts with validation.
