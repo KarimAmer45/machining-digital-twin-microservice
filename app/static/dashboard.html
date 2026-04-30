@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Machining Digital Twin</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel controls" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">FastAPI microservice</p>
+          <h1 id="title">Machining Digital Twin</h1>
+        </div>
+
+        <form id="prediction-form">
+          <label>
+            <span>Spindle speed <small>RPM</small></span>
+            <input name="spindle_speed" type="number" min="1" step="100" value="8000" required>
+          </label>
+          <label>
+            <span>Feed rate <small>mm/min</small></span>
+            <input name="feed_rate" type="number" min="1" step="10" value="500" required>
+          </label>
+          <label>
+            <span>Depth of cut <small>mm</small></span>
+            <input name="depth_of_cut" type="number" min="0.1" step="0.1" value="1.5" required>
+          </label>
+          <label class="wide">
+            <span>Vibration features</span>
+            <textarea name="vibration_features" rows="4" required>0.16, 0.19, 0.24, 0.21, 0.18, 0.27</textarea>
+          </label>
+          <button type="submit">Run prediction</button>
+        </form>
+      </section>
+
+      <section class="panel result" aria-live="polite">
+        <div class="status-row">
+          <span class="status-dot"></span>
+          <span>Model online</span>
+        </div>
+        <div class="gauge">
+          <svg viewBox="0 0 160 100" role="img" aria-label="Predicted tool wear gauge">
+            <path class="track" d="M20 82 A60 60 0 0 1 140 82"></path>
+            <path id="wear-arc" class="arc" d="M20 82 A60 60 0 0 1 140 82"></path>
+          </svg>
+          <div>
+            <p>Predicted tool wear</p>
+            <strong id="wear-value">0.180</strong>
+          </div>
+        </div>
+        <div class="metrics">
+          <div>
+            <span>Surface risk</span>
+            <strong id="risk-value" class="risk medium">medium</strong>
+          </div>
+          <div>
+            <span>Confidence</span>
+            <strong id="confidence-value">0.82</strong>
+          </div>
+        </div>
+        <pre id="response-json">{
+  "predicted_tool_wear": 0.18,
+  "surface_quality_risk": "medium",
+  "confidence": 0.82
+}</pre>
+      </section>
+    </main>
+    <script src="/static/dashboard.js"></script>
+  </body>
+</html>
