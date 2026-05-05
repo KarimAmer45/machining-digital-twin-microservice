@@ -84,7 +84,7 @@ Verified locally on April 30, 2026 with Uvicorn serving the FastAPI app at `http
 }
 ```
 
-## What This Demonstrates
+## API workflow
 
 - Typed FastAPI request and response contracts with validation.
 - A replaceable model wrapper around a versioned artifact.
@@ -92,7 +92,7 @@ Verified locally on April 30, 2026 with Uvicorn serving the FastAPI app at `http
 - A small dashboard that exercises the same `/predict` route as API clients.
 - Docker packaging for repeatable deployment.
 
-## Limitations And Next Steps
+## Hardening plan
 
 - The current model is a deterministic surrogate, not a production-trained model.
 - Confidence is a heuristic based on operating range and vibration intensity.
