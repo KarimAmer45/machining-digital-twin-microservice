@@ -101,7 +101,7 @@ Verified locally on April 30, 2026 with Uvicorn serving the FastAPI app at `http
 
 ---
 
-## Benchmarks (Live — May 2026)
+## Benchmarks
 
 API latency measured with FastAPI `TestClient` over 200 warm requests on a single process (no network overhead — representative of internal service latency).
 
